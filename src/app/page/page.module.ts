@@ -6,7 +6,9 @@ import { PageComponent } from './components/page/page.component';
 import { TranslateLoader, TranslateModule, TranslateStore } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
 
+const routes: Routes = [{ path: '', component: PageComponent }];
 @NgModule({
   declarations: [
     PageComponent
@@ -21,7 +23,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
         useFactory: (httpLoaderFactory),
         deps: [HttpClient]
       }
-    })
+    }),
+    RouterModule.forChild(routes),
   ],
   providers: [ TranslateStore ]
 })
